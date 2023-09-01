@@ -26,7 +26,7 @@ function App() {
   }
 
   return (
-    <OrderDetailsProvider>
+    <OrderDetailsProvider value={undefined}>
       <Container><Component setOrderPhase={setOrderPhase} /></Container>
     </OrderDetailsProvider>
   );
