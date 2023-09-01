@@ -3,7 +3,11 @@ import Options from "./Options";
 import { useOrderDetails } from "../../contexts/OrderDetails";
 import { formatCurrency } from "../../utilities";
 
-export default function OrderEntry({ setOrderPhase }) {
+interface SetOrderPhase {
+  setOrderPhase: React.Dispatch<React.SetStateAction<string>>;
+}
+
+export default function OrderEntry({ setOrderPhase }: SetOrderPhase) {
   const { totals } = useOrderDetails();
 
   return (
