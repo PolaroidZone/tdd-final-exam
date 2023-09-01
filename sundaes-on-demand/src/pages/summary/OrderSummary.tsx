@@ -3,7 +3,11 @@ import SummaryForm from "./SummaryForm";
 import { useOrderDetails } from "../../contexts/OrderDetails";
 import { formatCurrency } from "../../utilities";
 
-export default function OrderSummary({ setOrderPhase }) {
+interface SetOrderPhaseProps {
+  setOrderPhase: React.Dispatch<React.SetStateAction<string>>;
+}
+
+export default function OrderSummary({ setOrderPhase }: SetOrderPhaseProps) {
   const { totals, optionCounts } = useOrderDetails();
 
   const scoopArray = Object.entries(optionCounts.scoops);
