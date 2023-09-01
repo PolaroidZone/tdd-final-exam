@@ -23,7 +23,9 @@ interface OrderDetailsContextValue {
   resetOrder: () => void;
 }
 
-const OrderDetails = createContext<OrderDetailsContextValue | undefined>(undefined);
+const OrderDetails = createContext<OrderDetailsContextValue | undefined>(
+  undefined
+);
 
 // create custom hook to check whether we're in a provider
 export function useOrderDetails() {
@@ -93,5 +95,7 @@ export const OrderDetailsProvider: FC<OrderDetailsProviderProps> = ({
     resetOrder,
   };
 
-  return <OrderDetails.Provider value={value}>{children}</OrderDetails.Provider>;
+  return (
+    <OrderDetails.Provider value={value}>{children}</OrderDetails.Provider>
+  );
 };
