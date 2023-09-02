@@ -4,10 +4,14 @@ import Button from "react-bootstrap/Button";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Popover from "react-bootstrap/Popover";
 
-export default function SummaryForm({ setOrderPhase }) {
+interface OrederPhaseProps {
+  setOrderPhase: React.Dispatch<React.SetStateAction<string>>;
+}
+
+export default function SummaryForm({ setOrderPhase }: OrederPhaseProps) {
   const [tcChecked, setTcChecked] = useState(false);
 
-  function handleSubmit(event) {
+  function handleSubmit(event: { preventDefault: () => void; }) {
     event.preventDefault();
 
     // pass along to the next phase.

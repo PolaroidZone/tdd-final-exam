@@ -8,7 +8,7 @@ import OrderSummary from "./pages/summary/OrderSummary";
 import { OrderDetailsProvider } from "./contexts/OrderDetails";
 
 function App() {
-  // const [orderPhase, setOrderPhase] = useState<'inProgress' | 'review' | 'completed'>('inProgress');
+  //const [orderPhase, setOrderPhase] = useState<'inProgress' | 'review' | 'completed'>('inProgress');
   const [orderPhase, setOrderPhase] = useState("inProgress");
 
   let Component = OrderEntry; // default to order page

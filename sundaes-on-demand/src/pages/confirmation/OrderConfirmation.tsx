@@ -3,7 +3,11 @@ import axios from "axios";
 import Button from "react-bootstrap/Button";
 import { useOrderDetails } from "../../contexts/OrderDetails";
 
-export default function OrderConfirmation({ setOrderPhase }) {
+interface OrderProps {
+  setOrderPhase: React.Dispatch<React.SetStateAction<string>>;
+}
+
+export default function OrderConfirmation({ setOrderPhase }: OrderProps) {
   const { resetOrder } = useOrderDetails();
   const [orderNumber, setOrderNumber] = useState(null);
 

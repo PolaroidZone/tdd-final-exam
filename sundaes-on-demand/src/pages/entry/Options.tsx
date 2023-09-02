@@ -8,7 +8,11 @@ import { pricePerItem } from "../../constants";
 import { formatCurrency } from "../../utilities";
 import { useOrderDetails } from "../../contexts/OrderDetails";
 
-export default function Options({ optionType }) {
+interface OptionTypeProp {
+  optionType: "scoops" | "toppings";
+}
+
+export default function Options({ optionType }: OptionTypeProp) {
   const [items, setItems] = useState([]);
   const [error, setError] = useState(false);
   const { totals } = useOrderDetails();
@@ -29,7 +33,12 @@ export default function Options({ optionType }) {
   const ItemComponent = optionType === "scoops" ? ScoopOption : ToppingOption;
   const title = optionType[0].toUpperCase() + optionType.slice(1).toLowerCase();
 
-  const optionItems = items.map((item) => (
+  type item = {
+    name: string;
+    imagePath: string;
+  }
+
+  const optionItems = items.map((item: item) => (
     <ItemComponent
       key={item.name}
       name={item.name}
